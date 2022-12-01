@@ -25,9 +25,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 studiopost <a name="about-project"></a>
+# 📖 [Budget-app] <a name="about-project"></a>
 
-**studiopost** is a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
+**[Budget-app]** is a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -105,7 +105,7 @@ If you dont have PostgreSQL installed on your computer, you can download it from
 
 If you have installed git you can clone the code to your machine, or download a ZIP of all the files directly.
 
-[Download the ZIP from this location](https://github.com/Owusu-Desmond/studiopost/archive/refs/heads/main.zip), or run the following [git](https://git-scm.com/downloads) command to clone the files to your machine:
+[Download the ZIP from this location](https://github.com/dodoburner/budget-app/archive/refs/heads/main.zip), or run the following [git](https://git-scm.com/downloads) command to clone the files to your machine:
 
 - [ ] Once the files are on your machine, open the _blog-app_ folder in your code editor.
 Run the following command in your terminal to install the required gems and run the application:
@@ -210,7 +210,7 @@ You can deploy this project using:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Owusu-Desmond/studiopost/issues).
+Feel free to check the [issues page](https://github.com/dodoburner/budget-app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
