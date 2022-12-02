@@ -5,10 +5,12 @@ class ApplicationController < ActionController::Base
   protected
 
   def update_allowed_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:full_name, :username, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.permit(:sign_up) do |u|
+      u.permit(:full_name, :username, :email, :password, :password_confirmation)
+    end
   end
 
-    def after_sign_in_path_for(resource)
-        user_path(resource)
-    end
+  def after_sign_in_path_for(resource)
+    user_path(resource)
+  end
 end
