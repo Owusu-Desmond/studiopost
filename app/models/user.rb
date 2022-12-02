@@ -11,4 +11,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
 
   # Associations
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :followers, dependent: :destroy
 end
