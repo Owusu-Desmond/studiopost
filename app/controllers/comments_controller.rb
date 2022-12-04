@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     @comment.post = @post
     respond_to do |format|
       if @comment.save
+        flash[:notice] = 'Comment was successfully created.'
         format.html { redirect_to user_post_path(@user, @post), notice: 'Comment was successfully created.' }
       end
     end
@@ -18,7 +19,7 @@ class CommentsController < ApplicationController
     @comment.destroy
     @post.comments_counter -= 1
     @post.save
-    redirect_to user_post_path(@comment.post.user, @comment.post)
+    redirect_to user_post_path(@user, @post)
   end
 
   def new
