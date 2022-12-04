@@ -15,11 +15,11 @@ class ApplicationController < ActionController::Base
   end
 
   # pass username as a parameter to the devise controller
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     user_path(current_user.username)
   end
 
-  def after_update_path_for(resource)
+  def after_update_path_for(_resource)
     user_path(current_user.username)
   end
 end

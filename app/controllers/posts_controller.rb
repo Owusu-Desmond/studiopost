@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, only: [:show, :destroy]
-  before_action :set_user, only: [:new, :create]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :set_post, only: %i[show destroy]
+  before_action :set_user, only: %i[new create]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @latest_posts = Post.all.order(created_at: :desc).limit(5)
   end
 
-  def create 
+  def create
     @post = Post.new(post_params)
     @post.user = current_user
 
@@ -37,7 +37,6 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
-
 
   private
 
