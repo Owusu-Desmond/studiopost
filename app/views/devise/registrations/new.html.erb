@@ -1,0 +1,64 @@
+<section style="background-color: #9A616D;">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { turbo: false} } ) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;">
+                    <span class="h1 fw-bold mb-0">Studiopost</span>
+                    </i>
+                  </div>
+
+                  <h4 class="fw-normal mb-3 pb-3 text-center" style="letter-spacing: 1px;">Sign up</h4>
+                  
+                  <div class="form-outline mb-4">
+                    <%= f.text_field :full_name, autofocus: true, autocomplete: "fullname" %>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <%= f.text_field :username, autocomplete: "username" %>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <%= f.email_field :email, autocomplete: "email" %>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br />
+                    <%= f.password_field :password, autocomplete: "new-password" %>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <%= f.submit "Sign up", class: "btn btn-dark btn-lg btn-block" %>
+                  </div>
+
+                  <%= render "devise/shared/links" %>
+
+                  <a href="#!" class="small text-muted">Terms of use.</a>
+                  <a href="#!" class="small text-muted">Privacy policy</a>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
