@@ -19,6 +19,11 @@ class ApplicationController < ActionController::Base
     user_path(current_user.username)
   end
 
+  # after signout redirect to root path
+  def after_sign_out_path_for(_resource)
+    root_path
+  end
+
   def after_update_path_for(_resource)
     user_path(current_user.username)
   end

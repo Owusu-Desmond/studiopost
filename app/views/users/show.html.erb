@@ -1,0 +1,101 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 vh-100" style="background-color: #9A616D;">
+        <% if current_user == @user %>
+            <div class="d-flex justify-content-end">
+            <%= link_to '<i class="fas fa-sign-out-alt"></i>'.html_safe, destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-sm mt-3', title: 'Logout' %>
+            </div>
+        <% end %>
+        <div class="row">
+            <div class="col py-3">
+                <% if @user.image_data %>
+                    <%= image_tag @user.image_url, class: "img-fluid rounded-circle w-50 mx-auto d-block" %>
+                <% else %>
+                    <%= image_tag "https://as1.ftcdn.net/v2/jpg/03/53/11/00/1000_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg", class: "img-fluid rounded-circle w-50 mx-auto d-block" %>
+                <% end %>
+                <h4 class="text-center py-3 ">
+                    <%= @user.full_name %><br />
+                    <i><span class="text-white fs-6">@<%= @user.username %></span></i>
+                </h4>
+                <p class="text-center text-white fs-5 text-decoration-underline">
+                    <%= @user.bio %>
+                </p>
+
+                <p class="text-center">
+                    <i class="fa fa-envelope"></i> <%= @user.email %> 
+                </p>
+                <% if current_user == @user %>
+                        <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary btn-sm mx-auto d-block mb-3 w-25" %>
+                <% end %>
+            </div>
+        </div>
+        <h5 class="text-white text-center"><%= @user.posts_counter %> Posts</h5>
+
+        <% if current_user == @user %>
+                <%= link_to "New post",  new_user_post_path(@user), class: "text-white btn btn-primary btn-sm mx-auto d-block mb-3 w-50" %>
+        <% end %>
+    </div>
+    <div class="col-md-8 overflow-auto vh-100">
+        <div class="card mt-3">
+            <div class="card-header">
+                <h3 class="card-title"> My posts </h3>
+            </div>
+            <div class="card-body">
+               <% if @posts.empty? %>
+                   <p class="text-center my-3">No posts yet</p>
+                   <%= link_to "New post",  new_user_post_path(@user), class: "btn btn-primary btn-sm mx-auto d-block mb-3" %>
+                <% else %>
+                    <% @posts.each do |post| %>
+                        <div class="card mb-5">
+                            <div class="card-header">
+                                <h3 class="card-title <%= post.title.length > 50 ? "fs-5" : "fs-4" %> ">
+                                    <%= link_to post.title, user_post_path(post.user, post) %>
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <%= markdown(post.text.truncate(200)) %>
+                                </p>
+                                <div class="card-footer d-flex justify-space-between">
+                                    <p class="card-text text-muted">
+                                        <i class="fa fa-heart"></i> <%= post.likes_counter %> likes 
+                                    </p>
+                                    <p class="card-text text-muted">
+                                        <i class="fa fa-comment"></i> <%= post.comments_counter %> comments
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+
+        <h3 class="my-5">Recent posts</h3>
+        <% @latest_posts.each do |post| %>
+            <div class="card my-5">
+                <div class="card-header">
+                    <h3 class="card-title <%= post.title.length > 50 ? "fs-3" : "fs-4" %>">
+                        <%= link_to post.title, user_post_path(post.user, post) %>
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <%= markdown(post.text.truncate(200)) %>
+                    </p>
+                    <p class="card-text text-muted">
+                        Posted by <%= link_to post.user.username, user_path(post.user.username) %> on <%= post.created_at.strftime("%B %d, %Y") %>
+                    </p>
+                </div>
+                <div class="card-footer d-flex justify-space-between">
+                    <p class="card-text text-muted">
+                        <i class="fa fa-heart"></i> <%= post.likes_counter %> likes 
+                    </p>
+                    <p class="card-text text-muted">
+                        <i class="fa fa-comment"></i> <%= post.comments_counter %> comments
+                    </p>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -6,6 +6,15 @@ ruby '3.1.2'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
 
+gem 'font-awesome-sass', '~> 6.2.1'
+
+# Use shrine for image uploading
+gem 'shrine', '~> 3.3'
+
+# Use redcarpet for markdown rendering in posts
+gem 'coderay'
+gem 'redcarpet'
+
 # Use bootstrap for styling
 gem 'bootstrap', '~> 5.2.2'
 gem 'bootstrap_form', '~> 5.1'

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_post, only: %i[show destroy]
-  before_action :set_user, only: %i[new create]
+  before_action :set_user, only: %i[new create edit update]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        flash[:notice] = 'Post was successfully created.'
         format.html { redirect_to user_post_path(@user, @post), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -22,6 +23,10 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
   end
 
   def show
@@ -33,9 +38,28 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def update
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to user_post_path(@user, @post), notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post }
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
-    @post.destroy
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'
+    @username = @post.user.username
+    if @post.destroy
+      flash[:notice] = 'Post was successfully deleted.'
+      redirect_to user_path(@username)
+    else
+      flash[:alert] = 'Something went wrong'
+      redirect_to user_posts_path(@user)
+    end
   end
 
   private

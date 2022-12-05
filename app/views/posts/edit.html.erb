@@ -1,0 +1,23 @@
+<section style="background-color: #9A616D;" , class="vh-100">
+  <div class="container py-5">
+    <div class="row w-75 mx-auto" style="background-color: #FFF;>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center py-3">Edit your post</h3>
+            </div>      
+            <div class="panel-body">
+                <%= bootstrap_form_with model: @post, url:user_post_path(@post.user, @post), method: :patch do |f| %>
+                    <div class="form-group">
+                        <%= f.text_field :title, placeholder: "Post title here", value: @post.title %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.text_area :text, rows: 10, placeholder: "Write your post here", value: @post.text %>
+                    </div>
+                    <div class="pt-1 mb-4">
+                        <%= f.submit "Update", class: "btn btn-dark btn-lg btn-block" %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
