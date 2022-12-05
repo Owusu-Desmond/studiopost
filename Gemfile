@@ -19,6 +19,7 @@ gem 'coderay'
 gem 'redcarpet'
 
 # Use bootstrap for styling
+gem 'bootstrap-sass'
 gem 'bootstrap', '~> 5.2.2'
 gem 'bootstrap_form', '~> 5.1'
 
