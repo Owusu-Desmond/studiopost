@@ -8,6 +8,9 @@ gem 'rails', '~> 7.0.4'
 
 gem 'font-awesome-sass', '~> 6.2.1'
 
+# Add reils-controller-testing gem for testing controllers
+gem 'rails-controller-testing'
+
 # Use shrine for image uploading
 gem 'shrine', '~> 3.3'
 
@@ -67,6 +70,7 @@ gem 'image_processing', '~> 1.2'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
 end
 
 group :development do
