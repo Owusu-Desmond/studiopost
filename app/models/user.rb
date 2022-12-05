@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
+  validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
 
   # Associations
   has_many :posts, dependent: :destroy
