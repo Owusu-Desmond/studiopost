@@ -27,7 +27,7 @@
 
 # 📖 studiopost <a name="about-project"></a>
 
-**studiopost** is a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
+**studiopost** is an application that allows users to create, edit, and delete posts. Users can also like, comment on posts and visit other users' profiles and see their posts. 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -64,22 +64,15 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[User authentication]**: Users can create an account and log in.
-- **[Transactions]**: Users can create, edit, and delete transactions.
-- **[Categories]**: Users can create, edit, and delete categories.
+- **User authentication**: Users can create an account, login and edit their profile.
+- **CRUD operations**: Users can create, read, update and delete posts.
+- **Like and comment on posts**: Users can like and comment on posts.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-<!-- link to presentation -->
 
-- [Live Demo Link](https://transactionkeeper.onrender.com)
-
-## 💻 Presentation link <a name="presentation-link"></a>
-
-- [Presentation link](https://www.loom.com/share/b0641383142b4428bb2a5011f26af2ff)
+[Live Demo Link](https://studiopost.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -183,7 +176,7 @@ You can deploy this project using:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Author <a name="authors"></a>
+## 👥 Author <a name="author"></a>
 
 👤 **Desmond Owusu Ansah**
 
@@ -198,9 +191,8 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Add a feature to allow users to add a profile picture.]**
-- [ ] **[Add a feature to allow users to add a cover image]**
-- [ ] **[Add a feature to allow users to add a bio.]**
+- [ ] **Allow users to follow other users**
+- [ ] **Notify users when they are followed or when followed users create a new post**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
