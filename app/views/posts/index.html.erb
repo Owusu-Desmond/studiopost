@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" style="background-color: #9A616D;">
                     <h3 class="card-title">Studiopost is an amazing community of artists, designers, and developers</h3>
                 </div>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text text-center">Join us and share your work with the world</p>
-                    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-block my-2" %>
-                    <%= link_to "Log in", new_user_session_path, class: "btn btn-secondary btn-block my-2" %>
+                    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-block my-2", style: "background-color: #9A616D;" %>
+                    <%= link_to "Log in", new_user_session_path, class: "btn btn-secondary btn-block my-2", style: "background-color: #9A616D;" %>
                 </div>
             </div>
 
@@ -24,15 +24,15 @@
         </div>
         <div class="col-md-9 overflow-auto">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title text-center">Posts</h3>
+                <div class="card-header" style="background-color: #9A616D;">
+                    <h3 class="card-title text-center">Latest Posts</h3>
                 </div>
                 <div class="card-body">
                     <% @latest_posts.each do |post| %>
                         <div class="card mb-3">
                             <div class="card-header">
                                 <h3 class="card-title <%= post.title.length > 50 ? "fs-5" : "fs-4" %>">
-                                    <%= link_to post.title, user_post_path(post.user, post) %>
+                                    <%= link_to post.title, user_post_path(post.user, post), style: "color: #9A616D;" %>
                                 </h3>
                             </div>
                             <div class="card-body">

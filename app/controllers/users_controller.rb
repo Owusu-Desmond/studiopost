@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(username: params[:username])
+
+    return redirect_to root_path if @user.nil?
+
     @posts = Post.where(user_id: @user.id).order(created_at: :desc)
     @latest_posts = Post.all.order(created_at: :desc).limit(5)
   end
