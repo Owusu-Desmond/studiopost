@@ -3,7 +3,7 @@
     <div class="col-md-4 vh-100" style="background-color: #9A616D;">
         <% if current_user == @user %>
             <div class="d-flex justify-content-end">
-            <%= link_to '<i class="fas fa-sign-out-alt"></i>'.html_safe, destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-sm mt-3', title: 'Logout' %>
+            <%= link_to '<i class="fas fa-sign-out-alt"></i>'.html_safe, destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-outline-danger btn-sm mt-3', title: 'Logout' %>
             </div>
         <% end %>
         <div class="row">
@@ -37,7 +37,7 @@
     </div>
     <div class="col-md-8 overflow-auto vh-100">
         <div class="card mt-3">
-            <div class="card-header">
+            <div class="card-header" style="background-color: #9A616D;">
                 <h3 class="card-title"> My posts </h3>
             </div>
             <div class="card-body">
@@ -49,7 +49,7 @@
                         <div class="card mb-5">
                             <div class="card-header">
                                 <h3 class="card-title <%= post.title.length > 50 ? "fs-5" : "fs-4" %> ">
-                                    <%= link_to post.title, user_post_path(post.user, post) %>
+                                    <%= link_to post.title, user_post_path(post.user, post), style: "color: #9A616D;" %>
                                 </h3>
                             </div>
                             <div class="card-body">
@@ -76,7 +76,7 @@
             <div class="card my-5">
                 <div class="card-header">
                     <h3 class="card-title <%= post.title.length > 50 ? "fs-3" : "fs-4" %>">
-                        <%= link_to post.title, user_post_path(post.user, post) %>
+                        <%= link_to post.title, user_post_path(post.user, post), style: "color: #9A616D;" %>
                     </h3>
                 </div>
                 <div class="card-body">

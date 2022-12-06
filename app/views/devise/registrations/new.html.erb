@@ -1,5 +1,5 @@
 <section style="background-color: #9A616D;">
-  <div class="container py-5">
+  <div class="container py-3">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
         <div class="card" style="border-radius: 1rem;">
@@ -20,8 +20,6 @@
                     </i>
                   </div>
 
-                  <h4 class="fw-normal mb-3 pb-3 text-center" style="letter-spacing: 1px;">Sign up</h4>
-                  
                   <div class="form-outline mb-4">
                     <%= f.text_field :full_name, autofocus: true, autocomplete: "fullname" %>
                   </div>
@@ -36,9 +34,9 @@
 
                   <div class="form-outline mb-4">
                     <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      Pasword<em>(<%= @minimum_password_length %> characters minimum)</em>
                     <% end %><br />
-                    <%= f.password_field :password, autocomplete: "new-password" %>
+                    <%= f.password_field :password, autocomplete: "new-password", hide_label: true %>
                   </div>
 
                   <div class="form-outline mb-4">
@@ -50,9 +48,6 @@
                   </div>
 
                   <%= render "devise/shared/links" %>
-
-                  <a href="#!" class="small text-muted">Terms of use.</a>
-                  <a href="#!" class="small text-muted">Privacy policy</a>
                 <% end %>
               </div>
             </div>

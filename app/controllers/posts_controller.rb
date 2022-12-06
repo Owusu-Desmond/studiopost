@@ -6,12 +6,14 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc)
     @popular_posts = Post.all.order(likes_counter: :desc).limit(5)
-    @latest_posts = Post.all.order(created_at: :desc).limit(5)
+    @latest_posts = Post.all.order(created_at: :desc).limit(10)
   end
 
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    @user.posts_counter += 1
+    @user.save
 
     respond_to do |format|
       if @post.save

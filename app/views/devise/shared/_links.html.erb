@@ -1,9 +1,9 @@
 <%- if controller_name != 'sessions' %>
-  <p class="mb-5 pb-lg-2" style="color: #393f81">Already have an account please <%= link_to "Log in", new_session_path(resource_name) %></p>
+  <p class="mb-2 pb-lg-2" style="color: #393f81">Already have an account please <%= link_to "Log in", new_session_path(resource_name) %></p>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account please <%= link_to "Sign up", new_registration_path(resource_name) %></p>
+  <p class="mb-2 pb-lg-2" style="color: #393f81;">Don't have an account please <%= link_to "Sign up", new_registration_path(resource_name) %></p>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
