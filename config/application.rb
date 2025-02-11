@@ -1,6 +1,9 @@
 require_relative "boot"
 
 require "rails/all"
+require "execjs"
+
+ExecJS.runtime = ExecJS::Runtimes::MiniRacer
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

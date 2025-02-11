@@ -14,6 +14,9 @@ gem 'rails-controller-testing'
 # Use shrine for image uploading
 gem 'shrine', '~> 3.3'
 
+# Use mini_racer as the JS runtime
+gem 'mini_racer'
+
 # Use redcarpet for markdown rendering in posts
 gem 'coderay'
 gem 'redcarpet'
