@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # all users passwords have been set updated
-user1 = User.create!(full_name: 'Desmond Owusu Ansah', username: 'desmond', email: 'desmond0406114009@gmail.com', password: '123456', password_confirmation: '123456', bio: 'Full Stack Web Developer')
+user1 = User.create!(full_name: 'Desmond Owusu Ansah', username: 'destee', email: 'desmond.ansah@a2sv.com', password: '123456', password_confirmation: '123456', bio: 'Full Stack Web Developer')
 
 user2 = User.create!(full_name: 'Mike Okyere', username: 'mike', email: 'mikeokyere360@gmail.com', password: '123456', password_confirmation: '123456', bio: 'Computer Science Student')
 
