@@ -70,7 +70,10 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
+    base64 (0.3.0)
     bcrypt (3.1.18)
+    benchmark (0.5.0)
+    bigdecimal (4.1.2)
     bindex (0.8.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
@@ -95,6 +98,7 @@ GEM
     concurrent-ruby (1.1.10)
     content_disposition (1.0.0)
     crass (1.0.6)
+    csv (3.3.6)
     debug (1.7.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
@@ -105,8 +109,13 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    dotenv (3.2.0)
+    dotenv-rails (3.2.0)
+      dotenv (= 3.2.0)
+      railties (>= 6.1)
     down (5.3.1)
       addressable (~> 2.8)
+    drb (2.2.3)
     erubi (1.11.0)
     execjs (2.8.1)
     ffi (1.15.5)
@@ -128,7 +137,9 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    libv8-node (18.19.0.0-x86_64-darwin)
     libv8-node (18.19.0.0-x86_64-linux)
+    logger (1.7.0)
     loofah (2.19.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -142,10 +153,14 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.9)
     mini_racer (0.16.0)
       libv8-node (~> 18.19.0.0)
-    minitest (5.16.3)
+    minitest (6.0.6)
+      drb (~> 2.0)
+      prism (~> 1.5)
     msgpack (1.6.0)
+    mutex_m (0.3.0)
     net-imap (0.3.1)
       net-protocol
     net-pop (0.1.2)
@@ -154,12 +169,15 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
-    nio4r (2.5.8)
-    nokogiri (1.13.9-x86_64-linux)
+    nio4r (2.7.5)
+    nokogiri (1.13.9)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    ostruct (0.6.3)
     pg (1.4.5)
     popper_js (2.11.6)
+    prism (1.9.0)
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -279,21 +297,31 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
+  x86_64-darwin
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
+  base64
+  benchmark
+  bigdecimal
   bootsnap
   bootstrap (~> 5.2.2)
   bootstrap_form (~> 5.1)
   capybara
   coderay
+  csv
   debug
   devise
+  dotenv-rails
   font-awesome-sass (~> 6.2.1)
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  logger
   mini_racer
+  mutex_m
+  ostruct
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
@@ -310,7 +338,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 4.0.6p0
 
 BUNDLED WITH
    2.3.7
